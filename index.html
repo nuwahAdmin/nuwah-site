@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nuwah Interiors — Furnishing Enquiry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --sand: #EDE6DA;
+    --sand-deep: #E2D8C7;
+    --ink: #211C16;
+    --ink-soft: #5A5248;
+    --line: #C9BEAC;
+    --clay: #7C5A3C;
+    --clay-deep: #5E4128;
+    --paper: #F7F3EC;
+    --ok: #3F5D42;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--ink);
+    background: radial-gradient(120% 80% at 50% -10%, #F3EEE4 0%, var(--sand) 55%, var(--sand-deep) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 620px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 #FFFDF8 inset, 0 24px 60px -30px rgba(33, 28, 22, 0.45);
+    padding: 44px 44px 40px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+
+  .lede {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0 0 34px;
+    max-width: 46ch;
+  }
+
+  .rule { height: 1px; background: var(--line); border: 0; margin: 0 0 30px; }
+
+  .field { margin-bottom: 30px; }
+  .field:last-of-type { margin-bottom: 34px; }
+
+  .q {
+    display: block;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .q .opt {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    margin-left: 8px;
+  }
+
+  .hint { font-size: 13px; color: var(--ink-soft); margin: 0 0 16px; }
+
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 460px) {
+    .choices { grid-template-columns: 1fr; }
+    .card { padding: 34px 24px 32px; }
+  }
+
+  .choice {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: #FDFBF6;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, transform 0.08s;
+    user-select: none;
+  }
+  .choice:hover { border-color: var(--clay); }
+  .choice:active { transform: translateY(1px); }
+  .choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .choice.selected {
+    background: var(--clay);
+    border-color: var(--clay-deep);
+    color: #FBF7F0;
+    box-shadow: 0 6px 16px -10px rgba(94, 65, 40, 0.8);
+  }
+  .choice:focus-within { outline: 2px solid var(--clay-deep); outline-offset: 2px; }
+
+  label.text-label {
+    display: block;
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 14px 15px;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    background: #FDFBF6;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    appearance: none;
+  }
+  textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+
+  input::placeholder, textarea::placeholder { color: #A99C86; }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237C5A3C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    cursor: pointer;
+  }
+
+  input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--clay-deep);
+    outline-offset: 2px;
+    border-color: var(--clay);
+  }
+
+  .submit {
+    width: 100%;
+    padding: 16px;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #FBF7F0;
+    background: var(--ink);
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.08s;
+  }
+  .submit:hover { background: #000; }
+  .submit:active { transform: translateY(1px); }
+  .submit:disabled { opacity: 0.55; cursor: default; transform: none; }
+
+  .error { color: #8A3A2A; font-size: 13.5px; margin: 14px 0 0; display: none; }
+  .error.show { display: block; }
+
+  .done { display: none; text-align: center; padding: 20px 0 8px; }
+  .done.show { display: block; }
+  .card.sent .form-body { display: none; }
+
+  .check {
+    width: 54px; height: 54px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--ok);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check svg { width: 26px; height: 26px; }
+
+  .done h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 8px;
+  }
+  .done p { color: var(--ink-soft); font-size: 15px; line-height: 1.55; margin: 0; }
+</style>
+</head>
+<body>
+  <main class="card" id="card">
+    <div class="form-body">
+      <p class="eyebrow">Nuwah Interiors</p>
+      <h1>Let&rsquo;s furnish your space.</h1>
+      <p class="lede">Tell us a little about your unit and how to reach you. We&rsquo;ll follow up with next steps.</p>
+      <hr class="rule" />
+
+      <form id="enquiry" novalidate>
+        <div class="field">
+          <label class="q">What type of unit are you looking to furnish?</label>
+          <p class="hint">Pick the option that fits best.</p>
+          <div class="choices" role="radiogroup" aria-label="Unit type">
+            <label class="choice"><input type="radio" name="unitType" value="Studio" /><span>Studio</span></label>
+            <label class="choice"><input type="radio" name="unitType" value="1 Bedroom" /><span>1 Bedroom</span></label>
+            <label class="choice"><input type="radio" name="unitType" value="2 Bedroom" /><span>2 Bedroom</span></label>
+            <label class="choice"><input type="radio" name="unitType" value="3 or more Bedrooms" /><span>3 or more Bedrooms</span></label>
+            <label class="choice"><input type="radio" name="unitType" value="Batch Furnishing" /><span>Batch Furnishing</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="q" for="location">Where is your property located?</label>
+          <p class="hint">Choose your community or area in Dubai.</p>
+          <select id="location" name="location">
+            <option value="" disabled selected>Select an area&hellip;</option>
+            <option>Downtown Dubai</option>
+            <option>Business Bay</option>
+            <option>Dubai Marina</option>
+            <option>Jumeirah Beach Residence (JBR)</option>
+            <option>Palm Jumeirah</option>
+            <option>Palm Jebel Ali</option>
+            <option>Bluewaters Island</option>
+            <option>Dubai Islands</option>
+            <option>Emaar Beachfront</option>
+            <option>Port de la Mer</option>
+            <option>Rashid Yachts &amp; Marina</option>
+            <option>Mina Rashid</option>
+            <option>Dubai Maritime City</option>
+            <option>Dubai Creek Harbour</option>
+            <option>Dubai Hills Estate</option>
+            <option>Jumeirah Village Circle (JVC)</option>
+            <option>Jumeirah Village Triangle (JVT)</option>
+            <option>Jumeirah Golf Estates</option>
+            <option>Arabian Ranches</option>
+            <option>The Springs</option>
+            <option>The Meadows</option>
+            <option>The Lakes</option>
+            <option>Emirates Hills</option>
+            <option>Sobha Hartland</option>
+            <option>Mohammed Bin Rashid City (MBR City)</option>
+            <option>Tilal Al Ghaf</option>
+            <option>The Valley</option>
+            <option>The Oasis by Emaar</option>
+            <option>The Acres</option>
+            <option>Ghaf Woods</option>
+            <option>Dubailand</option>
+            <option>Motor City</option>
+            <option>Dubai Sports City</option>
+            <option>Dubai Silicon Oasis</option>
+            <option>Dubai Production City (IMPZ)</option>
+            <option>Dubai Studio City</option>
+            <option>Damac Hills</option>
+            <option>Damac Hills 2 (Akoya)</option>
+            <option>Town Square</option>
+            <option>Dubai South</option>
+            <option>Expo City</option>
+            <option>Discovery Gardens</option>
+            <option>Dubai Investment Park (DIP)</option>
+            <option>Al Furjan</option>
+            <option>Jebel Ali Village</option>
+            <option>The Gardens</option>
+            <option>International City</option>
+            <option>Mirdif</option>
+            <option>Al Barsha</option>
+            <option>Al Quoz</option>
+            <option>Jumeirah</option>
+            <option>Umm Suqeim</option>
+            <option>Al Wasl</option>
+            <option>City Walk</option>
+            <option>Jaddaf Waterfront (Al Jaddaf)</option>
+            <option>Deira</option>
+            <option>Bur Dubai</option>
+            <option>Al Karama</option>
+            <option>Al Nahda</option>
+            <option>Al Barari</option>
+            <option>Nad Al Sheba</option>
+            <option>The Villa</option>
+            <option>Living Legends</option>
+            <option>Other / Not listed</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="text-label" for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Full name" autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label class="text-label" for="contactNumber">Contact number</label>
+          <input type="tel" id="contactNumber" name="contactNumber" placeholder="e.g. 050 123 4567" autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <label class="text-label" for="email">Email <span class="opt">Optional</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label class="text-label" for="message">Anything you&rsquo;d like to add <span class="opt">Optional</span></label>
+          <textarea id="message" name="message" placeholder="Tell us about your project, timeline, or any specifics&hellip;"></textarea>
+        </div>
+
+        <button type="submit" class="submit" id="submitBtn">Send enquiry</button>
+        <p class="error" id="error">Please complete the required fields before sending.</p>
+      </form>
+    </div>
+
+    <div class="done" id="done" aria-live="polite">
+      <div class="check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FBF7F0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h2>Thank you.</h2>
+      <p>Your enquiry has reached Nuwah Interiors. We&rsquo;ll be in touch shortly.</p>
+    </div>
+  </main>
+
+<script>
+  // CONFIGURATION
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbwS_UPQemvGfpo_VoFB-cAHfNVmO2elr8_WLj7aMwt-9bFoSpUenbIG2PZke5TUbh6I/exec";
+
+  const form = document.getElementById("enquiry");
+  const card = document.getElementById("card");
+  const done = document.getElementById("done");
+  const errorEl = document.getElementById("error");
+  const submitBtn = document.getElementById("submitBtn");
+
+  document.querySelectorAll(".choice input").forEach((input) => {
+    input.addEventListener("change", () => {
+      document.querySelectorAll(".choice").forEach((c) => c.classList.remove("selected"));
+      if (input.checked) input.closest(".choice").classList.add("selected");
+      errorEl.classList.remove("show");
+    });
+  });
+  ["location", "name", "contactNumber"].forEach((id) => {
+    document.getElementById(id).addEventListener("input", () => errorEl.classList.remove("show"));
+    document.getElementById(id).addEventListener("change", () => errorEl.classList.remove("show"));
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const unitType = form.unitType.value;
+    const location = form.location.value;
+    const name = form.name.value.trim();
+    const contactNumber = form.contactNumber.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!unitType || !location || !name || !contactNumber) {
+      errorEl.textContent = "Please complete the required fields before sending.";
+      errorEl.classList.add("show");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending\u2026";
+
+    const payload = new FormData();
+    payload.append("unitType", unitType);
+    payload.append("location", location);
+    payload.append("name", name);
+    payload.append("contactNumber", contactNumber);
+    payload.append("email", email);
+    payload.append("message", message);
+    payload.append("submittedAt", new Date().toISOString());
+
+    try {
+      await fetch(ENDPOINT, { method: "POST", mode: "no-cors", body: payload });
+      card.classList.add("sent");
+      done.classList.add("show");
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send enquiry";
+      errorEl.textContent = "Something went wrong. Please try again.";
+      errorEl.classList.add("show");
+    }
+  });
+</script>
+</body>
+</html>
