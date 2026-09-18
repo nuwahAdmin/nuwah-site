@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Enquire — Nuwah Interiors</title>
+<meta name="description" content="Start a furnishing or fit-out enquiry with Nuwah Interiors, Dubai." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">Nuwah<small>Interiors</small></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')">☰</button>
+    <ul class="links" id="links">
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="joinery.html">Joinery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="btn active" href="enquire.html">Enquire</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto 36px">
+      <p class="eyebrow">Enquiry</p>
+      <h1 style="margin-bottom:14px">Let's furnish your space.</h1>
+      <p class="lede">Tell us about the unit and how to reach you. We'll come back with scope, a tier recommendation and a site visit.</p>
+    </div>
+
+    <main class="form-card" id="card">
+      <div class="form-body">
+        <form id="enquiry" novalidate>
+          <div class="field">
+            <label class="q">What type of unit are you looking to furnish?</label>
+            <p class="hint">Pick the option that fits best.</p>
+            <div class="choices" role="radiogroup" aria-label="Unit type">
+              <label class="choice"><input type="radio" name="unitType" value="Studio" /><span>Studio</span></label>
+              <label class="choice"><input type="radio" name="unitType" value="1 Bedroom" /><span>1 Bedroom</span></label>
+              <label class="choice"><input type="radio" name="unitType" value="2 Bedroom" /><span>2 Bedroom</span></label>
+              <label class="choice"><input type="radio" name="unitType" value="3 or more Bedrooms" /><span>3 or more Bedrooms</span></label>
+              <label class="choice"><input type="radio" name="unitType" value="Batch Furnishing" /><span>Batch Furnishing</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="q" for="location">Where is your property located?</label>
+            <p class="hint">Choose your community or area in Dubai.</p>
+            <select id="location" name="location">
+              <option value="" disabled selected>Select an area…</option>
+              <option>Downtown Dubai</option><option>Business Bay</option><option>Dubai Marina</option>
+              <option>Jumeirah Beach Residence (JBR)</option><option>Palm Jumeirah</option><option>Palm Jebel Ali</option>
+              <option>Bluewaters Island</option><option>Dubai Islands</option><option>Emaar Beachfront</option>
+              <option>Port de la Mer</option><option>Rashid Yachts &amp; Marina</option><option>Mina Rashid</option>
+              <option>Dubai Maritime City</option><option>Dubai Creek Harbour</option><option>Dubai Hills Estate</option>
+              <option>Jumeirah Village Circle (JVC)</option><option>Jumeirah Village Triangle (JVT)</option><option>Jumeirah Golf Estates</option>
+              <option>Arabian Ranches</option><option>The Springs</option><option>The Meadows</option><option>The Lakes</option>
+              <option>Emirates Hills</option><option>Sobha Hartland</option><option>Mohammed Bin Rashid City (MBR City)</option>
+              <option>Tilal Al Ghaf</option><option>The Valley</option><option>The Oasis by Emaar</option><option>The Acres</option>
+              <option>Ghaf Woods</option><option>Dubailand</option><option>Motor City</option><option>Dubai Sports City</option>
+              <option>Dubai Silicon Oasis</option><option>Dubai Production City (IMPZ)</option><option>Dubai Studio City</option>
+              <option>Damac Hills</option><option>Damac Hills 2 (Akoya)</option><option>Town Square</option><option>Dubai South</option>
+              <option>Expo City</option><option>Discovery Gardens</option><option>Dubai Investment Park (DIP)</option><option>Al Furjan</option>
+              <option>Jebel Ali Village</option><option>The Gardens</option><option>International City</option><option>Mirdif</option>
+              <option>Al Barsha</option><option>Al Quoz</option><option>Jumeirah</option><option>Umm Suqeim</option><option>Al Wasl</option>
+              <option>City Walk</option><option>Jaddaf Waterfront (Al Jaddaf)</option><option>Deira</option><option>Bur Dubai</option>
+              <option>Al Karama</option><option>Al Nahda</option><option>Al Barari</option><option>Nad Al Sheba</option>
+              <option>The Villa</option><option>Living Legends</option><option>Abu Dhabi</option><option>Other / Not listed</option>
+            </select>
+          </div>
+
+          <div class="field"><label class="q" for="name">Your name</label><input type="text" id="name" name="name" placeholder="Full name" autocomplete="name" /></div>
+          <div class="field"><label class="q" for="contactNumber">Contact number</label><input type="tel" id="contactNumber" name="contactNumber" placeholder="e.g. 050 123 4567" autocomplete="tel" /></div>
+          <div class="field"><label class="q" for="email">Email <span class="opt">Optional</span></label><input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" /></div>
+          <div class="field"><label class="q" for="message">Anything you'd like to add <span class="opt">Optional</span></label><textarea id="message" name="message" placeholder="Project, timeline, floor plan details…"></textarea></div>
+
+          <button type="submit" class="btn submit" id="submitBtn">Send enquiry</button>
+          <p class="error" id="error">Please complete the required fields before sending.</p>
+        </form>
+      </div>
+
+      <div class="done" id="done" aria-live="polite">
+        <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FBF8F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h2 style="font-size:30px;margin-bottom:8px">Thank you.</h2>
+        <p class="lede" style="margin:0 auto">Your enquiry has reached Nuwah Interiors. We'll be in touch shortly.</p>
+      </div>
+    </main>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><a class="wordmark" href="index.html">Nuwah<small>Interiors</small></a><p style="margin-top:16px">Luxury interior design &amp; build for modern living. Business Bay, Dubai.</p></div>
+    <div><h4>Explore</h4><a href="packages.html">Packages</a><a href="portfolio.html">Portfolio</a><a href="joinery.html">Joinery</a><a href="about.html">About</a></div>
+    <div><h4>Contact</h4><a href="mailto:info@nuwahinteriors.ae">info@nuwahinteriors.ae</a><a href="tel:+971585511964">+971 58 551 1964</a></div>
+    <div class="copy">© 2026 Nuwah Interiors. Design · Build · Furnish.</div>
+  </div>
+</footer>
+
+<script>
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbwS_UPQemvGfpo_VoFB-cAHfNVmO2elr8_WLj7aMwt-9bFoSpUenbIG2PZke5TUbh6I/exec";
+
+  const form = document.getElementById("enquiry");
+  const card = document.getElementById("card");
+  const done = document.getElementById("done");
+  const errorEl = document.getElementById("error");
+  const submitBtn = document.getElementById("submitBtn");
+
+  document.querySelectorAll(".choice input").forEach((input) => {
+    input.addEventListener("change", () => {
+      document.querySelectorAll(".choice").forEach((c) => c.classList.remove("selected"));
+      if (input.checked) input.closest(".choice").classList.add("selected");
+      errorEl.classList.remove("show");
+    });
+  });
+  ["location", "name", "contactNumber"].forEach((id) => {
+    document.getElementById(id).addEventListener("input", () => errorEl.classList.remove("show"));
+    document.getElementById(id).addEventListener("change", () => errorEl.classList.remove("show"));
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const unitType = form.unitType.value;
+    const location = form.location.value;
+    const name = form.name.value.trim();
+    const contactNumber = form.contactNumber.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!unitType || !location || !name || !contactNumber) {
+      errorEl.textContent = "Please complete the required fields before sending.";
+      errorEl.classList.add("show");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+
+    const payload = new FormData();
+    payload.append("unitType", unitType);
+    payload.append("location", location);
+    payload.append("name", name);
+    payload.append("contactNumber", contactNumber);
+    payload.append("email", email);
+    payload.append("message", message);
+    payload.append("submittedAt", new Date().toISOString());
+
+    try {
+      await fetch(ENDPOINT, { method: "POST", mode: "no-cors", body: payload });
+      card.classList.add("sent");
+      done.classList.add("show");
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send enquiry";
+      errorEl.textContent = "Something went wrong. Please try again.";
+      errorEl.classList.add("show");
+    }
+  });
+</script>
+</body>
+</html>

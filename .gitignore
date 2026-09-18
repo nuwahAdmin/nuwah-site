@@ -1,0 +1,9 @@
+# Keep source assets local. Only the web-ready images in assets/web/ are published.
+assets/*
+!assets/web/
+!assets/web/**
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
