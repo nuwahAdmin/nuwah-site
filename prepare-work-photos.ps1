@@ -51,7 +51,7 @@ foreach ($cat in $sel.Keys) {
     $bmp.Save((Join-Path $out $name), $codec, $ep)
     $g.Dispose(); $bmp.Dispose(); $img.Dispose()
     $orient = if ($w -gt $h) { " wide" } else { "" }
-    [void]$html.AppendLine(('      <figure class="{0}{1}" data-cat="{0}"><img src="assets/web/{2}" alt="{3} — furnished by Nuwah Interiors" loading="lazy" /><figcaption>{3}</figcaption></figure>' -f $cat, $orient, $name, $captions[$cat]))
+    [void]$html.AppendLine(('      <figure class="{0}{1}" data-cat="{0}"><img src="assets/web/{2}" alt="{3} {5} furnished by Nuwah Interiors" loading="lazy" /><figcaption>{3}</figcaption></figure>' -f $cat, $orient, $name, $captions[$cat], $null, [string][char]0x2014))
     Write-Host ("{0,3}  {1}  {2}x{3}  <- {4}" -f $n, $name, $w, $h, $byIdx[$idx])
   }
 }
