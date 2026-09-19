@@ -51,7 +51,7 @@ foreach ($k in $map.Keys) {
     }
   }
 
-  $scale = [Math]::Min(1, $maxEdge / [Math]::Max($img.Width, $img.Height))
+  $scale = [Math]::Min(1.0, [double]$maxEdge / [Math]::Max($img.Width, $img.Height))
   $w = [int]($img.Width * $scale); $h = [int]($img.Height * $scale)
   $bmp = New-Object System.Drawing.Bitmap($w, $h)
   $g = [System.Drawing.Graphics]::FromImage($bmp)
