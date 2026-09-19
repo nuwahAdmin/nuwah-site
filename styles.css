@@ -185,6 +185,12 @@ p { margin: 0 0 1em; }
 .lb-cap { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; color: var(--sand-deep); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; }
 @media (max-width: 820px) { .lb-nav { font-size: 52px; padding: 20px 8px; } .lb img { max-height: 80vh; } }
 
+/* ─── Proof line (packages page) ──────────────────────────────── */
+.proof { display: flex; flex-wrap: wrap; gap: 10px 32px; margin: -14px 0 30px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); }
+.proof strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 22px; font-weight: 600; color: var(--ink); margin-right: 6px; }
+.proof a { color: var(--olive); font-weight: 600; text-decoration: none; }
+.proof a:hover { color: var(--olive-deep); }
+
 /* ─── Pricing tables ──────────────────────────────────────────── */
 .tier-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
 .tier-tabs button {
