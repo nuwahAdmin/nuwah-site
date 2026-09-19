@@ -14,9 +14,10 @@ $byIdx = @{}; foreach ($m in $manifest) { $byIdx[[int]$m.idx] = $m.name }
 
 # Reviewed selection (index in manifest) by category. Near-duplicate angles left out.
 $sel = [ordered]@{
-  living  = @(9,22,98,3,1,51,35,64,109,88,44,4,5,18,25,29,34,36,37,38,45,48,52,53,54,56,59,61,65,67,72,75,76,78,81,86,89,90,91,99,103,112)
+  # idx 3, 4, 18, 106 removed (not Nuwah projects) — replaced in place by 94, 6, 41, 47
+  living  = @(9,22,98,94,1,51,35,64,109,88,44,6,5,41,25,29,34,36,37,38,45,48,52,53,54,56,59,61,65,67,72,75,76,78,81,86,89,90,91,99,103,112)
   bedroom = @(11,74,92,26,79,0,2,16,20,24,31,32,39,43,49,50,55,60,68,70,80,95,104)
-  dining  = @(7,21,69,102,8,19,27,62,71,77,87,93,97,105,106,110)
+  dining  = @(7,21,69,102,8,19,27,62,71,77,87,93,97,105,47,110)
   details = @(23,28,40,42,15,107,108)
 }
 $captions = @{ living = "Living"; bedroom = "Bedroom"; dining = "Dining &amp; kitchen"; details = "Details" }
