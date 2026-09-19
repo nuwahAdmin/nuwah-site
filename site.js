@@ -21,7 +21,8 @@
 
   var seen = new Set();
   groups.forEach(function (g) {
-    var els = document.querySelectorAll(g.sel), k = 0;
+    var els = document.querySelectorAll(g.sel);
+    var perParent = new Map();   // stagger counts restart for each container (e.g. each package tab)
     els.forEach(function (el) {
       if (seen.has(el)) return;
       if (g.skipIn && el.closest && el.closest(g.skipIn)) return;   // already animates with its parent card
@@ -30,9 +31,10 @@
       // in a reversed split (image on the right) swap the slide directions
       if (el.closest && el.closest('.split.rev') && dir !== 'up') dir = dir === 'left' ? 'right' : 'left';
       el.classList.add('rv', 'rv-' + dir);
+      var p = el.parentNode, k = perParent.get(p) || 0;
+      perParent.set(p, k + 1);
       var i = g.wrap ? (k % g.wrap) : k;
       el.style.transitionDelay = ((g.delay || 0) + i * g.stagger) + 'ms';
-      k++;
     });
   });
 
@@ -42,7 +44,14 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
 
-  document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  // Let the browser paint the hidden state first, otherwise on a first (uncached) visit
+  // the start and end states land in the same frame and nothing animates.
+  void document.body.offsetHeight;
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+    });
+  });
 
   // Safety net: anything still hidden after 4s (e.g. off-screen grid quirks) is shown.
   setTimeout(function () {
