@@ -240,6 +240,15 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 .check { width: 54px; height: 54px; margin: 0 auto 20px; border-radius: 50%; background: var(--olive); display: flex; align-items: center; justify-content: center; }
 @media (max-width: 460px) { .choices { grid-template-columns: 1fr; } }
 
+/* ─── FAQ ─────────────────────────────────────────────────────── */
+.faq { border-top: 1px solid var(--line); padding: 4px 0; }
+.faq:last-of-type { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: 21px; font-weight: 500; line-height: 1.2; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: "Manrope", sans-serif; font-size: 20px; color: var(--olive); flex: none; transition: transform .2s; }
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq p { margin: 0 0 18px; color: var(--ink-soft); font-size: 15px; line-height: 1.65; }
+
 /* ─── Reveal animations (classes are added by site.js) ────────── */
 .rv { opacity: 0; transition: opacity .8s cubic-bezier(.2,.65,.2,1), transform .8s cubic-bezier(.2,.65,.2,1); will-change: opacity, transform; }
 .rv-up    { transform: translateY(26px); }
@@ -257,7 +266,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 .footer .wordmark { color: var(--white); }
 .footer .wordmark small { color: var(--sand-deep); }
 .footer p { font-size: 14px; color: var(--sand-deep); max-width: 36ch; }
-.footer h4 { margin: 0 0 12px; font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--brass); }
+.footer .fh, .footer h4 { margin: 0 0 12px; font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
 .footer a { color: var(--sand); text-decoration: none; font-size: 14.5px; display: block; margin-bottom: 8px; }
 .footer a:hover { color: var(--white); }
 .copy { grid-column: 1 / -1; border-top: 1px solid #3a352e; margin-top: 30px; padding-top: 20px; font-size: 12.5px; color: var(--sand-deep); }

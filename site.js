@@ -12,6 +12,7 @@
     { sel: '.section .eyebrow, .section h1, .section h2, .section .lede, .section-tight .eyebrow, .section-tight h2', dir: 'up', stagger: 80, skipIn: '.split, .form-card, .card, .tier' },
     { sel: '.grid-3 > .card, .grid-2 > .card, .tiers > .tier, .extras > .extra, .values > *', dir: 'up', stagger: 110 },
     { sel: '.split > .img',                                         dir: 'left',  stagger: 0 },
+    { sel: '.split > :first-child',                                 dir: 'left',  stagger: 0 },
     { sel: '.split > div:not(.img)',                                dir: 'right', stagger: 0, delay: 120 },
     { sel: '.gallery figure, .home-gallery > a',                    dir: 'up',    stagger: 70, wrap: 6 },
     { sel: '.strip span',                                           dir: 'up',    stagger: 30 },
