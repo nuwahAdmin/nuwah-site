@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /></noscript>
-<link rel="stylesheet" href="/styles.min.css?v=202609191620" />
+<link rel="stylesheet" href="/styles.min.css?v=202609200733" />
 <!-- seo:start -->
 <link rel="canonical" href="https://nuwahinteriors.ae/" />
 <link rel="preload" as="image" href="/assets/web/hero.webp" fetchpriority="high" />
@@ -34,7 +34,7 @@
 <meta name="twitter:description" content="Turnkey furniture packages, interior design and fit-out for Dubai homes and holiday rentals. 400+ units furnished, 10-day turnaround, own Ajman joinery." />
 <meta name="twitter:image" content="https://nuwahinteriors.ae/assets/web/og-image.jpg" />
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":["LocalBusiness","HomeAndConstructionBusiness"],"@id":"https://nuwahinteriors.ae/#business","name":"Nuwah Interiors","legalName":"Nuwah Technical Services L.L.C","url":"https://nuwahinteriors.ae/","logo":"https://nuwahinteriors.ae/assets/web/logo-512.png","image":"https://nuwahinteriors.ae/assets/web/og-image.jpg","description":"Turnkey interior design, fit-out and furniture packages for homes and holiday rentals in Dubai. 400+ units furnished, 10-day turnaround, built in our own Ajman joinery.","telephone":"+971585511964","email":"info@nuwahinteriors.ae","address":{"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":[{"@type":"City","name":"Dubai"},{"@type":"City","name":"Abu Dhabi"},{"@type":"City","name":"Ajman"}],"founder":{"@type":"Person","name":"Halla Alfahmawi","jobTitle":"Founder & CEO"},"priceRange":"AED 11,000 - 135,000","sameAs":["https://www.instagram.com/nuwah.interiors/"],"knowsAbout":["Interior design","Fit-out","Furniture packages","Holiday home furnishing","Joinery"]},{"@context":"https://schema.org","@type":"WebSite","@id":"https://nuwahinteriors.ae/#website","url":"https://nuwahinteriors.ae/","name":"Nuwah Interiors","publisher":{"@id":"https://nuwahinteriors.ae/#business"}}]</script>
-<!-- seo:end --><script src="/site.min.js?v=202609191620" defer></script>
+<!-- seo:end --><script src="/site.min.js?v=202609200733" defer></script>
 </head>
 <body>
 
@@ -52,9 +52,10 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero hero-bleed">
+  <img class="hero-bg" src="/assets/web/hero.webp" fetchpriority="high" width="960" height="1280" alt="Living room with backlit TV wall and sculptural pendant, furnished by Nuwah Interiors" />
   <div class="wrap">
-    <div>
+    <div class="hero-copy">
       <p class="eyebrow">Design · Build · Furnish</p>
       <h1>Furnished, styled and <em>ready to let</em> in ten days.</h1>
       <p class="lede">Turnkey interiors for Dubai homes and holiday rentals. Designed in Dubai, built in our own Ajman joinery, delivered as one complete package.</p>
@@ -63,7 +64,6 @@
         <a class="btn btn-ghost" href="/enquire/">Start an enquiry</a>
       </div>
     </div>
-    <div class="hero-img"><img src="/assets/web/hero.webp" fetchpriority="high" width="960" height="1280" alt="Living room with backlit TV wall and sculptural pendant, furnished by Nuwah Interiors" /></div>
   </div>
 </section>
 
@@ -133,14 +133,58 @@
 </section>
 
 <section class="section">
-  <div class="wrap split">
-    <div class="img"><img src="/assets/web/space-01.webp" loading="lazy" alt="Furnished bedroom with upholstered feature wall" /></div>
-    <div>
-      <p class="eyebrow">Packages</p>
-      <h2>Furniture packages, priced upfront. Studio to four-bed.</h2>
-      <p class="lede">Three tiers — Standard, Premium and Lux — each with the full loose-furniture set included. Studios from AED 11,000; four-beds up to AED 135,000. Appliances and DTCM household items stack on as add-ons.</p>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px">
+      <div>
+        <p class="eyebrow">Packages</p>
+        <h2 style="margin-bottom:12px">Furniture packages, priced upfront. Studio to four-bed.</h2>
+        <p class="lede" style="margin:0">Three tiers for every unit size — Standard, Premium and Lux — each with the full loose-furniture set, curtains, lighting, artwork and styling included. Pick a size to see what's in each tier.</p>
+      </div>
       <a class="btn" href="/packages/">View all packages</a>
     </div>
+    <div class="pkgs">
+      <a class="pkg" href="/packages/">
+        <figure><img src="/assets/web/work-59-800.webp" alt="Furnished studio bedroom by Nuwah Interiors" loading="lazy" /></figure>
+        <div class="pkg-body">
+          <h3>Studio</h3>
+          <div class="pkg-from">from <strong>AED 11,000</strong></div>
+          <div class="pkg-tiers"><span>Standard 11k</span><span>Premium 16k</span><span>Lux 32k</span></div>
+        </div>
+      </a>
+      <a class="pkg" href="/packages/">
+        <figure><img src="/assets/web/work-01-800.webp" alt="Furnished one-bedroom living and dining by Nuwah Interiors" loading="lazy" /></figure>
+        <div class="pkg-body">
+          <h3>1 Bedroom</h3>
+          <div class="pkg-from">from <strong>AED 25,000</strong></div>
+          <div class="pkg-tiers"><span>Standard 25k</span><span>Premium 35k</span><span>Lux 45k</span></div>
+        </div>
+      </a>
+      <a class="pkg" href="/packages/">
+        <figure><img src="/assets/web/work-03-800.webp" alt="Furnished two-bedroom living room by Nuwah Interiors" loading="lazy" /></figure>
+        <div class="pkg-body">
+          <h3>2 Bedroom</h3>
+          <div class="pkg-from">from <strong>AED 35,000</strong></div>
+          <div class="pkg-tiers"><span>Standard 35k</span><span>Premium 45k</span><span>Lux 55k</span></div>
+        </div>
+      </a>
+      <a class="pkg" href="/packages/">
+        <figure><img src="/assets/web/work-08-800.webp" alt="Furnished three-bedroom living and dining by Nuwah Interiors" loading="lazy" /></figure>
+        <div class="pkg-body">
+          <h3>3 Bedroom</h3>
+          <div class="pkg-from">from <strong>AED 45,000</strong></div>
+          <div class="pkg-tiers"><span>Standard 45k</span><span>Premium 60k</span><span>Lux 90k</span></div>
+        </div>
+      </a>
+      <a class="pkg" href="/packages/">
+        <figure><img src="/assets/web/work-11-800.webp" alt="Furnished four-bedroom living room by Nuwah Interiors" loading="lazy" /></figure>
+        <div class="pkg-body">
+          <h3>4 Bedroom</h3>
+          <div class="pkg-from">from <strong>AED 55,000</strong></div>
+          <div class="pkg-tiers"><span>Standard 55k</span><span>Premium 85k</span><span>Lux 135k</span></div>
+        </div>
+      </a>
+    </div>
+    <p class="hint" style="margin-top:18px">All prices in AED, excluding VAT. Appliances and DTCM household items stack on as add-ons; fit-out works are quoted separately.</p>
   </div>
 </section>
 
