@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ga:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV1L4W65VY"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JV1L4W65VY');</script>
+<!-- ga:end --><title>Additional payment | Nuwah Interiors</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Settle an additional amount for your Nuwah Interiors booking through Tamara — split in 2, 3 or 4, or pay in full." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.min.css?v=202610292323" />
+<link rel="canonical" href="https://nuwahinteriors.ae/book/pay/" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#4E5A3E" />
+<script src="/site.min.js?v=202610292323" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="/">Nuwah<small>Interiors</small></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')">☰</button>
+    <ul class="links" id="links">
+      <li><a href="/packages/">Packages</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/joinery/">Joinery</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a class="btn" href="/enquire/">Enquire</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto 36px">
+      <p class="eyebrow">Additional payment</p>
+      <h1 style="margin-bottom:14px">Settle an additional amount.</h1>
+      <p class="lede">If we've asked you for an extra amount after your quotation — or for add-ons — pay it here through Tamara: split in 2, 3 or 4, or in full. Your booking reference is on your confirmation email.</p>
+    </div>
+
+    <main class="form-card" id="card">
+      <div class="form-body">
+        <form id="topup" novalidate>
+          <div class="field">
+            <label class="q" for="amount">Amount to pay</label>
+            <p class="hint">In AED, as agreed with Nuwah.</p>
+            <input type="text" inputmode="decimal" id="amount" name="amount" placeholder="e.g. 3500" autocomplete="off" />
+          </div>
+          <div class="field">
+            <label class="q" for="ref">Booking reference <span class="opt">If you have one</span></label>
+            <input type="text" id="ref" name="ref" placeholder="NW-261029-K7PQ" autocomplete="off" style="text-transform:uppercase" />
+          </div>
+          <div class="field">
+            <label class="q" for="note">What is it for <span class="opt">Optional</span></label>
+            <input type="text" id="note" name="note" placeholder="e.g. quotation difference, appliances add-on" maxlength="140" />
+          </div>
+
+          <div class="sum" id="sum" hidden>
+            <div class="sr due"><span>Through Tamara today</span><b id="sumAmt">—</b></div>
+            <div class="widget" id="widget"></div>
+            <p class="fine">You'll complete the payment on Tamara's secure checkout and choose your plan there — split in 2, 3 or 4, or pay in full. No interest, no late fees.</p>
+          </div>
+
+          <div class="field">
+            <label class="q">Your details</label>
+            <p class="hint">Use the same details as your booking so we can match the payment.</p>
+            <div class="row2">
+              <div><input type="text" id="firstName" name="firstName" placeholder="First name" autocomplete="given-name" /></div>
+              <div><input type="text" id="lastName" name="lastName" placeholder="Last name" autocomplete="family-name" /></div>
+            </div>
+            <div class="row2" style="margin-top:12px">
+              <div><input type="tel" id="phone" name="phone" placeholder="Mobile, e.g. 050 123 4567" autocomplete="tel" /></div>
+              <div><input type="email" id="email" name="email" placeholder="Email" autocomplete="email" /></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="agree"><input type="checkbox" id="agree" /><span>I confirm this amount was agreed with Nuwah Interiors for my project, and I agree to the <a href="/book/#terms" style="color:var(--olive);font-weight:600">booking terms</a>.</span></label>
+          </div>
+
+          <button type="submit" class="btn submit" id="submitBtn">Continue to Tamara</button>
+          <p class="secure">You'll be taken to Tamara's secure checkout. Nuwah never sees your card details.</p>
+          <p class="error" id="error">Please complete the required fields before continuing.</p>
+        </form>
+      </div>
+
+      <div class="done" id="done" aria-live="polite">
+        <div class="spin"></div>
+        <h2 style="font-size:30px;margin-bottom:8px">Preparing your Tamara checkout…</h2>
+        <p class="lede" style="margin:0 auto">One moment — you'll be redirected to Tamara to complete the payment.</p>
+      </div>
+    </main>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><a class="wordmark" href="/">Nuwah<small>Interiors</small></a><p style="margin-top:16px">Luxury interior design &amp; build for modern living. Dubai, UAE.</p></div>
+    <div><div class="fh">Explore</div><a href="/packages/">Packages</a><a href="/portfolio/">Portfolio</a><a href="/joinery/">Joinery</a><a href="/about/">About</a></div>
+    <div><div class="fh">Contact</div><a href="mailto:info@nuwahinteriors.ae">info@nuwahinteriors.ae</a><a href="tel:+971585511964">+971 58 551 1964</a><a href="/enquire/">Enquiry form</a><a href="https://www.instagram.com/nuwah.interiors/" target="_blank" rel="noopener">Instagram @nuwah.interiors</a></div>
+    <div class="copy">© 2026 Nuwah Interiors. Design · Build · Furnish.</div>
+  </div>
+</footer>
+
+<script>
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxoMlnjB7bj7qY481LDmIJnRIHebRNj9PFnE_8B_Mr8kuph4aH4Ah2Z2pOv5e_wmuA9/exec";   /* same /exec URL as /book/ */
+  const TAMARA_PUBLIC_KEY = "a98b2d15-d099-45c1-ba4c-93172813670a";
+  const MAX_AMOUNT = 100000;   /* Tamara's single-order ceiling on Nuwah's account */
+
+  const form = document.getElementById("topup"), card = document.getElementById("card"), done = document.getElementById("done");
+  const errorEl = document.getElementById("error"), submitBtn = document.getElementById("submitBtn"), sum = document.getElementById("sum");
+  const fmt = (n) => "AED " + (Math.round(n * 100) / 100).toLocaleString("en-US");
+  function amountValue() { const n = Number(String(form.amount.value).replace(/[^\d.]/g, "")); return isFinite(n) ? Math.round(n * 100) / 100 : 0; }
+
+  /* Tamara widget v2 */
+  let widgetLoaded = false, currentAmount = 0;
+  function loadWidget() {
+    if (widgetLoaded) return; widgetLoaded = true;
+    window.tamaraWidgetConfig = { lang: "en", country: "AE", publicKey: TAMARA_PUBLIC_KEY, style: { fontSize: "14px", badgeRatio: 1 } };
+    const s = document.createElement("script"); s.defer = true; s.src = "https://cdn.tamara.co/widget-v2/tamara-widget.js";
+    s.onload = () => renderWidget(currentAmount); document.head.appendChild(s);
+  }
+  function renderWidget(amount) {
+    const host = document.getElementById("widget"); host.innerHTML = "";
+    if (!widgetLoaded || !amount) return;
+    const w = document.createElement("tamara-widget");
+    w.setAttribute("type", "tamara-summary"); w.setAttribute("inline-type", "2"); w.setAttribute("amount", String(amount));
+    w.setAttribute("config", JSON.stringify({ badgePosition: "right", showExtraContent: "" }));
+    host.appendChild(w);
+    if (window.TamaraWidgetV2 && typeof TamaraWidgetV2.refresh === "function") { try { TamaraWidgetV2.refresh(); } catch (_) {} }
+  }
+
+  let widgetTimer;
+  function update() {
+    const a = amountValue();
+    currentAmount = a;
+    if (a >= 1) { document.getElementById("sumAmt").textContent = fmt(a); sum.hidden = false; loadWidget(); clearTimeout(widgetTimer); widgetTimer = setTimeout(() => renderWidget(a), 400); }
+    else sum.hidden = true;
+    errorEl.classList.remove("show");
+  }
+  form.amount.addEventListener("input", update);
+  ["ref", "note", "firstName", "lastName", "phone", "email", "agree"].forEach((id) => {
+    const el = document.getElementById(id);
+    el.addEventListener("input", () => errorEl.classList.remove("show")); el.addEventListener("change", () => errorEl.classList.remove("show"));
+  });
+
+  /* Prefill: ?ref=NW-...&amount=3500&for=... from a link we send, and contact details from a previous booking on this device */
+  (function prefill() {
+    const q = new URLSearchParams(location.search);
+    if (q.get("ref")) form.ref.value = q.get("ref").toUpperCase();
+    if (q.get("amount")) form.amount.value = q.get("amount");
+    if (q.get("for")) form.note.value = q.get("for");
+    try {
+      const d = JSON.parse(localStorage.getItem("nuwahBookDraft") || "{}");
+      ["firstName", "lastName", "phone", "email"].forEach((id) => { if (d[id] && !form[id].value) form[id].value = d[id]; });
+    } catch (_) {}
+    update();
+  })();
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted || card.classList.contains("sent")) { card.classList.remove("sent"); done.classList.remove("show"); submitBtn.disabled = false; submitBtn.textContent = "Continue to Tamara"; }
+  });
+
+  function normalisePhone(raw) {
+    let p = String(raw || "").replace(/[\s\-().]/g, "");
+    if (p.startsWith("00")) p = "+" + p.slice(2);
+    if (/^0?5\d{8}$/.test(p)) p = "+971" + p.replace(/^0/, "");
+    if (/^9715\d{8}$/.test(p)) p = "+" + p;
+    return /^\+\d{8,15}$/.test(p) ? p : "";
+  }
+  function fail(msg) {
+    card.classList.remove("sent"); done.classList.remove("show");
+    submitBtn.disabled = false; submitBtn.textContent = "Continue to Tamara";
+    errorEl.textContent = msg; errorEl.classList.add("show");
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const amount = amountValue(), ref = form.ref.value.trim().toUpperCase(), note = form.note.value.trim();
+    const firstName = form.firstName.value.trim(), lastName = form.lastName.value.trim();
+    const phone = normalisePhone(form.phone.value), email = form.email.value.trim();
+    if (!(amount >= 1)) return fail("Please enter the amount in AED.");
+    if (amount > MAX_AMOUNT) return fail("Tamara takes up to AED 100,000 in one payment. Please split it into two payments or contact us.");
+    if (ref && !/^NW-\d{6}-[A-Z0-9]{4}$/.test(ref)) return fail("That booking reference doesn't look right — it's in the form NW-261029-K7PQ. Leave it blank if you don't have one.");
+    if (!firstName || !lastName) return fail("Please enter your first and last name.");
+    if (!phone) return fail("Please enter a valid mobile number, e.g. 050 123 4567.");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail("Please enter a valid email address.");
+    if (!document.getElementById("agree").checked) return fail("Please tick the confirmation to continue.");
+
+    submitBtn.disabled = true; submitBtn.textContent = "Preparing your Tamara checkout…";
+    card.classList.add("sent"); done.classList.add("show");
+    try {
+      const res = await fetch(ENDPOINT, { method: "POST", body: JSON.stringify({ action: "topup", amount, ref, note, firstName, lastName, phone, email, page: location.href, ua: navigator.userAgent }), redirect: "follow" });
+      const data = await res.json();
+      if (!data || !data.ok || !data.checkout_url) throw new Error((data && data.error) || "Could not start the Tamara checkout.");
+      try { sessionStorage.setItem("nuwahBooking", JSON.stringify({ ref: data.ref, mode: "topup", linked: ref, amount })); } catch (_) {}
+      if (window.gtag) gtag("event", "begin_checkout", { currency: "AED", value: amount, items: [{ item_id: "topup", item_name: "Additional payment", price: amount, quantity: 1 }] });
+      location.href = data.checkout_url;
+    } catch (err) {
+      fail(err && err.message ? err.message : "Something went wrong. Please try again or call +971 58 551 1964.");
+    }
+  });
+</script>
+</body>
+</html>

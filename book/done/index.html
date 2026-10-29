@@ -12,12 +12,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /></noscript>
-<link rel="stylesheet" href="/styles.min.css?v=202610292256" />
+<link rel="stylesheet" href="/styles.min.css?v=202610292323" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#4E5A3E" />
-<script src="/site.min.js?v=202610292256" defer></script>
+<script src="/site.min.js?v=202610292323" defer></script>
 </head>
 <body>
 
@@ -49,13 +49,13 @@
         <h1 style="font-size:34px;margin-bottom:8px" id="pTitle">Deposit received. Thank you.</h1>
         <p class="lede" style="margin:0 auto 24px" id="pLede">Your package is reserved. A confirmation is on its way to your email.</p>
         <div class="sum" style="text-align:left;margin:0 0 24px">
-          <div class="sr"><span>Booking reference</span><b id="pRef">—</b></div>
-          <div class="sr"><span>Package</span><b id="pPkg">—</b></div>
-          <div class="sr"><span>Package price</span><b id="pPrice">—</b></div>
+          <div class="sr"><span id="pRefLbl">Booking reference</span><b id="pRef">—</b></div>
+          <div class="sr" id="rowPkg"><span id="pPkgLbl">Package</span><b id="pPkg">—</b></div>
+          <div class="sr" id="rowPrice"><span>Package price</span><b id="pPrice">—</b></div>
           <div class="sr"><span id="pDepLbl">Deposit paid</span><b id="pDep">—</b></div>
-          <div class="sr"><span>Balance</span><b id="pBal">—</b></div>
+          <div class="sr" id="rowBal"><span>Balance</span><b id="pBal">—</b></div>
         </div>
-        <p style="font-size:15px;color:var(--ink-soft);max-width:48ch;margin:0 auto 20px"><strong style="color:var(--ink)">What happens next.</strong> We'll call you within one working day to schedule the site visit, confirm the scope and agree the delivery date. Furnishing typically takes about 10 days from sign-off.</p>
+        <p style="font-size:15px;color:var(--ink-soft);max-width:48ch;margin:0 auto 20px" id="pNext"><strong style="color:var(--ink)">What happens next.</strong> We'll call you within one working day to schedule the site visit, confirm the scope and agree the delivery date. Furnishing typically takes about 10 days from sign-off.</p>
         <a class="btn" href="/portfolio/">See recent work</a>
       </div>
 
@@ -87,14 +87,16 @@
 
 <script>
   const ENDPOINT = "https://script.google.com/macros/s/AKfycbxoMlnjB7bj7qY481LDmIJnRIHebRNj9PFnE_8B_Mr8kuph4aH4Ah2Z2pOv5e_wmuA9/exec";   /* same /exec URL as /book/ */
-  const fmt = (n) => "AED " + Math.round(Number(n) || 0).toLocaleString("en-US");
+  const fmt = (n) => "AED " + (Math.round((Number(n) || 0) * 100) / 100).toLocaleString("en-US");
   const q = new URLSearchParams(location.search);
   let ref = q.get("ref") || "";
   const orderId = q.get("orderId") || q.get("order_id") || "";
   const paymentStatus = (q.get("paymentStatus") || q.get("result") || "").toLowerCase();
   let saved = {}; try { saved = JSON.parse(sessionStorage.getItem("nuwahBooking") || "{}"); } catch (_) {}
   if (!ref && saved.ref) ref = saved.ref;
-  const retryHref = "/book/" + (saved.unit && saved.tier ? "?unit=" + saved.unit + "&tier=" + saved.tier : "");
+  const retryHref = saved.mode === "topup"
+    ? "/book/pay/" + (saved.amount ? "?amount=" + saved.amount + (saved.linked ? "&ref=" + saved.linked : "") : "")
+    : "/book/" + (saved.unit && saved.tier ? "?unit=" + saved.unit + "&tier=" + saved.tier : "");
   document.getElementById("retry").href = retryHref;
 
   function show(id) { document.querySelectorAll(".done").forEach((d) => d.classList.remove("show")); document.getElementById(id).classList.add("show"); }
@@ -109,6 +111,27 @@
       const res = await fetch(ENDPOINT, { method: "POST", body: JSON.stringify({ action: "confirm", ref, orderId, paymentStatus }), redirect: "follow" });
       const d = await res.json();
       if (!d || !d.ok) throw new Error((d && d.error) || "Could not confirm the booking.");
+      if ((d.status === "paid" || d.status === "confirmed") && d.mode === "topup") {
+        document.getElementById("pTitle").textContent = "Payment received. Thank you.";
+        document.getElementById("pLede").textContent = "Your additional payment is confirmed. A receipt is on its way to your email.";
+        document.getElementById("pRefLbl").textContent = "Payment reference";
+        document.getElementById("pRef").textContent = d.ref;
+        document.getElementById("pPkgLbl").textContent = "For";
+        document.getElementById("pPkg").textContent = (d.linked ? "Booking " + d.linked : "Nuwah Interiors") + (d.note ? " · " + d.note : "");
+        document.getElementById("rowPrice").style.display = "none"; document.getElementById("rowBal").style.display = "none";
+        document.getElementById("pDepLbl").textContent = "Paid via Tamara";
+        document.getElementById("pDep").textContent = fmt(d.amount);
+        document.getElementById("pNext").innerHTML = "<strong style=\"color:var(--ink)\">All done.</strong> We've logged this against your project" + (d.linked ? " (" + d.linked + ")" : "") + ". If anything looks wrong, reply to the receipt email or call +971 58 551 1964.";
+        show("state-paid");
+        try { localStorage.removeItem("nuwahBookDraft"); } catch (_) {}
+        try {
+          if (window.gtag && !sessionStorage.getItem("nuwahPurchase:" + d.ref)) {
+            gtag("event", "purchase", { transaction_id: d.ref, currency: "AED", value: d.amount, items: [{ item_id: "topup", item_name: "Additional payment", price: d.amount, quantity: 1 }] });
+            sessionStorage.setItem("nuwahPurchase:" + d.ref, "1");
+          }
+        } catch (_) {}
+        return;
+      }
       if (d.status === "paid" || d.status === "confirmed") {
         const full = d.mode === "full";
         document.getElementById("pTitle").textContent = full ? "Package confirmed. Thank you." : "Deposit received. Thank you.";
@@ -122,6 +145,7 @@
         document.getElementById("pDep").textContent = fmt(d.amount);
         document.getElementById("pBal").textContent = full ? "Nothing more to pay" : fmt(d.price - d.amount);
         show("state-paid");
+        try { localStorage.removeItem("nuwahBookDraft"); } catch (_) {}   /* booking done — forget the saved form */
         try {
           if (window.gtag && !sessionStorage.getItem("nuwahPurchase:" + d.ref)) {
             gtag("event", "purchase", { transaction_id: d.ref, currency: "AED", value: d.amount, items: [{ item_id: d.unitKey + "-" + d.tierKey + (full ? "" : "-deposit"), item_name: d.unit + " " + d.tier + (full ? " package" : " deposit"), price: d.amount, quantity: 1 }] });
