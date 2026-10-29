@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ga:start -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV1L4W65VY"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JV1L4W65VY');</script>
+<!-- ga:end --><title>Booking status | Nuwah Interiors</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Your Nuwah Interiors package booking status." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="/styles.min.css?v=202610292256" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#4E5A3E" />
+<script src="/site.min.js?v=202610292256" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="/">Nuwah<small>Interiors</small></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')">☰</button>
+    <ul class="links" id="links">
+      <li><a href="/packages/">Packages</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/joinery/">Joinery</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a class="btn" href="/enquire/">Enquire</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <main class="form-card" id="card">
+      <div class="done show" id="state-loading">
+        <div class="spin"></div>
+        <h1 style="font-size:34px;margin-bottom:8px">Confirming your payment…</h1>
+        <p class="lede" style="margin:0 auto">We're checking with Tamara. This usually takes a few seconds.</p>
+      </div>
+
+      <div class="done" id="state-paid">
+        <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FBF8F2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h1 style="font-size:34px;margin-bottom:8px" id="pTitle">Deposit received. Thank you.</h1>
+        <p class="lede" style="margin:0 auto 24px" id="pLede">Your package is reserved. A confirmation is on its way to your email.</p>
+        <div class="sum" style="text-align:left;margin:0 0 24px">
+          <div class="sr"><span>Booking reference</span><b id="pRef">—</b></div>
+          <div class="sr"><span>Package</span><b id="pPkg">—</b></div>
+          <div class="sr"><span>Package price</span><b id="pPrice">—</b></div>
+          <div class="sr"><span id="pDepLbl">Deposit paid</span><b id="pDep">—</b></div>
+          <div class="sr"><span>Balance</span><b id="pBal">—</b></div>
+        </div>
+        <p style="font-size:15px;color:var(--ink-soft);max-width:48ch;margin:0 auto 20px"><strong style="color:var(--ink)">What happens next.</strong> We'll call you within one working day to schedule the site visit, confirm the scope and agree the delivery date. Furnishing typically takes about 10 days from sign-off.</p>
+        <a class="btn" href="/portfolio/">See recent work</a>
+      </div>
+
+      <div class="done" id="state-pending">
+        <div class="spin" style="animation:none;border-color:var(--sand-deep)"></div>
+        <h1 style="font-size:34px;margin-bottom:8px">Almost there.</h1>
+        <p class="lede" style="margin:0 auto 16px">Tamara is still finalising your payment. We'll email you the moment it's confirmed — usually within a few minutes.</p>
+        <p style="font-size:14px;color:var(--ink-soft)">Booking reference <b id="qRef">—</b>. Questions? <a href="tel:+971585511964" style="color:var(--olive);font-weight:600">+971 58 551 1964</a></p>
+      </div>
+
+      <div class="done" id="state-failed">
+        <h1 style="font-size:34px;margin-bottom:8px" id="fTitle">Payment not completed.</h1>
+        <p class="lede" style="margin:0 auto 24px" id="fText">Nothing has been charged. You can try again, or send an enquiry and we'll arrange the deposit with you directly.</p>
+        <a class="btn" id="retry" href="/book/">Try again</a>
+        <a class="btn btn-ghost" href="/enquire/" style="margin-left:8px">Enquire instead</a>
+      </div>
+    </main>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><a class="wordmark" href="/">Nuwah<small>Interiors</small></a><p style="margin-top:16px">Luxury interior design &amp; build for modern living. Dubai, UAE.</p></div>
+    <div><div class="fh">Explore</div><a href="/packages/">Packages</a><a href="/portfolio/">Portfolio</a><a href="/joinery/">Joinery</a><a href="/about/">About</a></div>
+    <div><div class="fh">Contact</div><a href="mailto:info@nuwahinteriors.ae">info@nuwahinteriors.ae</a><a href="tel:+971585511964">+971 58 551 1964</a><a href="/enquire/">Enquiry form</a><a href="https://www.instagram.com/nuwah.interiors/" target="_blank" rel="noopener">Instagram @nuwah.interiors</a></div>
+    <div class="copy">© 2026 Nuwah Interiors. Design · Build · Furnish.</div>
+  </div>
+</footer>
+
+<script>
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxoMlnjB7bj7qY481LDmIJnRIHebRNj9PFnE_8B_Mr8kuph4aH4Ah2Z2pOv5e_wmuA9/exec";   /* same /exec URL as /book/ */
+  const fmt = (n) => "AED " + Math.round(Number(n) || 0).toLocaleString("en-US");
+  const q = new URLSearchParams(location.search);
+  let ref = q.get("ref") || "";
+  const orderId = q.get("orderId") || q.get("order_id") || "";
+  const paymentStatus = (q.get("paymentStatus") || q.get("result") || "").toLowerCase();
+  let saved = {}; try { saved = JSON.parse(sessionStorage.getItem("nuwahBooking") || "{}"); } catch (_) {}
+  if (!ref && saved.ref) ref = saved.ref;
+  const retryHref = "/book/" + (saved.unit && saved.tier ? "?unit=" + saved.unit + "&tier=" + saved.tier : "");
+  document.getElementById("retry").href = retryHref;
+
+  function show(id) { document.querySelectorAll(".done").forEach((d) => d.classList.remove("show")); document.getElementById(id).classList.add("show"); }
+  function failed(title, text) {
+    document.getElementById("fTitle").textContent = title;
+    if (text) document.getElementById("fText").textContent = text;
+    show("state-failed");
+  }
+
+  async function confirm(attempt, silent) {
+    try {
+      const res = await fetch(ENDPOINT, { method: "POST", body: JSON.stringify({ action: "confirm", ref, orderId, paymentStatus }), redirect: "follow" });
+      const d = await res.json();
+      if (!d || !d.ok) throw new Error((d && d.error) || "Could not confirm the booking.");
+      if (d.status === "paid" || d.status === "confirmed") {
+        const full = d.mode === "full";
+        document.getElementById("pTitle").textContent = full ? "Package confirmed. Thank you." : "Deposit received. Thank you.";
+        document.getElementById("pLede").textContent = full
+          ? "Tamara has approved your payment plan and your package is booked. A confirmation is on its way to your email."
+          : "Your package is reserved. A confirmation is on its way to your email.";
+        document.getElementById("pRef").textContent = d.ref;
+        document.getElementById("pPkg").textContent = d.unit + " · " + d.tier;
+        document.getElementById("pPrice").textContent = fmt(d.price);
+        document.getElementById("pDepLbl").textContent = full ? "Through Tamara" : "Deposit paid";
+        document.getElementById("pDep").textContent = fmt(d.amount);
+        document.getElementById("pBal").textContent = full ? "Nothing more to pay" : fmt(d.price - d.amount);
+        show("state-paid");
+        try {
+          if (window.gtag && !sessionStorage.getItem("nuwahPurchase:" + d.ref)) {
+            gtag("event", "purchase", { transaction_id: d.ref, currency: "AED", value: d.amount, items: [{ item_id: d.unitKey + "-" + d.tierKey + (full ? "" : "-deposit"), item_name: d.unit + " " + d.tier + (full ? " package" : " deposit"), price: d.amount, quantity: 1 }] });
+            sessionStorage.setItem("nuwahPurchase:" + d.ref, "1");
+          }
+        } catch (_) {}
+        return;
+      }
+      if (silent && d.status !== "declined") return;   /* background check after a cancel/failure redirect: only paid/declined refine the page */
+      if (d.status === "cancelled") return failed("Payment cancelled.", "Nothing has been charged. You can try again whenever you're ready, or send an enquiry instead.");
+      if (d.status === "declined") {
+        if (d.mode === "full" && d.unitKey && d.unitKey !== "b4" && d.tierKey) {
+          const retry = document.getElementById("retry");
+          retry.href = "/book/?unit=" + d.unitKey + "&tier=" + d.tierKey + "&pay=deposit"; retry.textContent = "Reserve with a deposit instead";
+          return failed("Tamara couldn't approve the full amount.", "Nothing has been charged. You can still book the same package by reserving it with a " + fmt(Math.max(1000, Math.round(d.price * 0.1 / 50) * 50)) + " deposit through Tamara, with the balance invoiced directly — or send an enquiry and we'll work it out with you.");
+        }
+        return failed("Tamara didn't approve this payment.", "Nothing has been charged. You can try again with different details, or send an enquiry and we'll arrange the payment with you directly.");
+      }
+      if (d.status === "expired") return failed("This checkout has expired.", "Nothing has been charged. Start again and complete the Tamara step within 30 minutes.");
+      /* pending / created: Tamara may still be processing — poll a few times */
+      document.getElementById("qRef").textContent = d.ref || ref || "—";
+      if (attempt < 4 && paymentStatus !== "cancelled" && paymentStatus !== "canceled" && paymentStatus !== "failed" && paymentStatus !== "declined") {
+        setTimeout(() => confirm(attempt + 1), 3000); return;
+      }
+      show("state-pending");
+    } catch (err) {
+      if (silent) return;
+      if (attempt < 2) { setTimeout(() => confirm(attempt + 1), 2500); return; }
+      failed("We couldn't confirm the booking just now.", (ref ? "Your reference is " + ref + ". " : "") + "If Tamara showed the payment as approved, you're booked — we'll email you shortly. Otherwise call +971 58 551 1964 and we'll sort it out.");
+    }
+  }
+
+  if (!ref && !orderId) failed("No booking found.", "This page is reached after paying a deposit through Tamara. Start a booking below.");
+  else if (ENDPOINT.indexOf("PASTE") === 0) failed("Online booking isn't switched on yet.", "Please use the enquiry form or call +971 58 551 1964.");
+  else if (paymentStatus === "cancelled" || paymentStatus === "canceled") { confirm(0, true); failed("Payment cancelled.", "Nothing has been charged. You can try again whenever you're ready, or send an enquiry instead."); }
+  else if (paymentStatus === "failed" || paymentStatus === "declined") { confirm(0, true); failed("Payment not completed.", "Nothing has been charged. You can try again, or send an enquiry and we'll arrange the deposit with you directly."); }
+  else confirm(0);
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@ def build(src, dst, fn):
 build("styles.css", "styles.min.css", rcssmin.cssmin)
 build("site.js", "site.min.js", rjsmin.jsmin)
 
-pages = ["index.html", "404.html"] + glob.glob(os.path.join(root, "*", "index.html"))
+pages = ["index.html", "404.html"] + glob.glob(os.path.join(root, "*", "index.html")) + glob.glob(os.path.join(root, "*", "*", "index.html"))
 for p in pages:
     path = p if os.path.isabs(p) else os.path.join(root, p)
     with open(path, encoding="utf-8") as f: h = f.read()
